@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gcash Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            color: #333;
+        }
+        input[type="text"], input[type="email"], input[type="file"] {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .success-message {
+            display: none;
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Gcash Payment</h2>
+    <h3>Send PHP 100 to:</h3>
+    <p><strong>Gcash Number:</strong> 0954-156-2102</p>
+    <p>After payment, upload proof of payment:</p>
+
+    <!-- Payment Confirmation Form -->
+    <form action="success.html" method="get">
+        <label for="gcashNumber">GCash Number:</label>
+        <input type="text" id="gcashNumber" name="gcashNumber" required>
+
+        <label for="paymentProof">Upload Payment Proof:</label>
+        <input type="file" id="paymentProof" name="paymentProof" required>
+
+        <button type="submit">Submit Payment</button>
+    </form>
+</div>
+
+<script>
+    // Function to get URL parameters
+    function getQueryParam(param) {
+        let urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Fill the form with user details from signup
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("name").value = getQueryParam("name") || "";
+        document.getElementById("email").value = getQueryParam("email") || "";
