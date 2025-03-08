@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        h2 {
+            color: green;
+        }
+        p {
+            font-size: 18px;
+        }
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Payment Successful!</h2>
+    <p>Thank you for your payment. You can now access your account and download your eBook.</p>
+
+    <a href="index.html">Go to Homepage</a>
+    <a href="ebook.pdf" download>Download eBook</a>
+
+    <p>Your account is being created...</p>
+
+    <script>
+        try {
+            // Retrieve user data from localStorage
+            const userData = localStorage.getItem('user');
+
+            if (!userData) {
+                throw new Error("User data not found.");
+            }
+
+            const user = JSON.parse(userData);
+
+            // Send user signup data to the backend to create login credentials
+            fetch('/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to register user. Server error.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert("Account created successfully! You can now log in.");
+                // Redirect the user to the homepage where they can log in
+                window.location.href = "index.html";
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Registration failed. Please try again later.");
+            });
+
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Something went wrong. Please contact support.");
+        }
+    </script>
+
+</body>
+</html>
