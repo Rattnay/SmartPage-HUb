@@ -77,15 +77,42 @@
             height: auto;
             border-radius: 5px;
         }
+ .animated-text {
+        font-size: 28px;
+        background-image: linear-gradient(90deg, #800080, #9b59b6, #8e44ad, #6a0dad);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 5s linear infinite, bounce 1.5s ease-in-out, typing 4s steps(40);
+        text-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid #800080;
+    }
+
+    @keyframes shimmer {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+
     </style>
 </head>
 <body>
     <div class="header">
         <div class="logo">SmartPage Hub</div>
-        <div class="search-container">
-            <input type="text" class="search-box" placeholder="Search books...">
-            <button class="search-button">🔍</button>
-        </div>
+       
         <div class="nav">
             <button onclick="location.href='index.html'">Home</button>
             <button onclick="location.href='signup.html'">Sign Up</button>
@@ -93,7 +120,13 @@
         </div>
     </div>
    
-    <h1>My eBooks</h1>
+
+   <h1 class="animated-text">
+    📚 Discover Over <strong>1,000+ eBooks</strong> in Our Collection!
+</h1>
+   
+</div>
+
     <div class="container" id="books-container"></div>
     <script>
         const booksContainer = document.getElementById("books-container");
