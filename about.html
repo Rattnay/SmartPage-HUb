@@ -109,20 +109,25 @@ body {
 }
 
 
-.header-buttons a {
-    text-decoration: none;
-    color: white;
-    background: #4A90E2;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: block; /* Makes each button full width */
-    transition: background 0.3s;
-    text-align: center;
-}
+.header-buttons {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+            z-index: 1100;
+        }
+        .header-buttons a {
+            text-decoration: none;
+            color: white;
+            background: #4A90E2;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .header-buttons a:hover { background: #357ABD; }
 
-.header-buttons a:hover { 
-    background: #357ABD; 
-}
 
 
 a,
@@ -801,10 +806,10 @@ blockquote {
 
 <body>
 <article id="1af99d19-cdbd-80c9-86f5-ce9b06ec1855" class="page sans">
- <div class="header-buttons">
+<div class="header-buttons">
         <a href="index.html">Home</a>
+<a href="about.html">About</a>
         <a href="explore.html">Explore</a>
-        <a href="signup.html">Sign Up</a>
         <a href="login.html">Log In</a>
     </div>
 
@@ -838,7 +843,13 @@ blockquote {
 </figure>
 </div><div id="1af99d19-cdbd-8091-b2e2-cebb110900c3" style="width:100%" class="column"><figure class="block-color-purple_background callout" style="white-space:pre-wrap;display:flex" id="1af99d19-cdbd-8062-8eb3-cca8ce804ae1"><div style="width:100%"><mark class="highlight-purple_background">💰 </mark><mark class="highlight-purple_background"><strong>Wealth &amp; Financial Success Guides</strong></mark><mark class="highlight-purple_background"><br/>Discover proven methods to build wealth and achieve financial independence.<br/></mark></div></figure></div></div><div id="1af99d19-cdbd-80b9-9010-ce5719aee66c" class="column-list"><div id="1af99d19-cdbd-8021-baca-fcf123bbb652" style="width:100%" class="column"><figure class="block-color-purple_background callout" style="white-space:pre-wrap;display:flex" id="1af99d19-cdbd-8099-adc9-f2cb42c326da"><div style="width:100%"><mark class="highlight-purple_background">🎓 </mark><mark class="highlight-purple_background"><strong>Knowledge &amp; Skill Mastery Digital Books</strong></mark><mark class="highlight-purple_background"><br/>Access comprehensive guides to master new skills and expand your expertise.<br/></mark></div></figure></div><div id="1af99d19-cdbd-8075-a139-d74ba18021da" style="width:100%" class="column"><figure class="block-color-purple_background callout" style="white-space:pre-wrap;display:flex" id="1af99d19-cdbd-806b-8caa-dc7d417d0bf9"><div style="width:100%"><mark class="highlight-purple_background">📝 </mark><mark class="highlight-purple_background"><strong>Planners, Checklists &amp; Tools</strong></mark><mark class="highlight-purple_background"><br/>Get organized with our collection of practical planning resources.<br/></mark></div></figure></div></div><h2 id="1af99d19-cdbd-80e6-b316-d192c1d2f15f" class="block-color-purple"><mark class="highlight-purple">Incredible Value</mark></h2><ul id="1af99d19-cdbd-804f-8c71-ef84dae085a9" class="block-color-default_background toggle"><li><details open=""><summary><strong>Affordable Pricing Structure</strong></summary><ul id="1af99d19-cdbd-8078-b9be-d67397f2cf10" class="bulleted-list"><li style="list-style-type:disc">💎 One-time payment of ₱500 for lifetime access</li></ul><ul id="1af99d19-cdbd-80dd-8b95-fdcb7d5b79bc" class="bulleted-list"><li style="list-style-type:disc">📥 Download any resource for just ₱50</li></ul><ul id="1af99d19-cdbd-8053-8b8d-d76ccf17d9e5" class="bulleted-list"><li style="list-style-type:disc">♾️ Unlimited access to our growing library</li></ul><ul id="1af99d19-cdbd-80c0-9dc5-e5aeca3b3737" class="bulleted-list"><li style="list-style-type:disc">🔄 Regular updates and new additions</li></ul></details></li></ul><h2 id="1af99d19-cdbd-80ec-9c9d-c58a4d837c3e" class="block-color-purple">Turn Knowledge Into Income</h2><figure class="block-color-purple_background callout" style="white-space:pre-wrap;display:flex" id="1af99d19-cdbd-8022-bc92-f705f923e751"><div style="width:100%">🚀 Launch your passive income journey with our digital products! Use our resources to:<ul id="1af99d19-cdbd-80c9-9119-c3bdff74115d" class="bulleted-list"><li style="list-style-type:disc">📚 Learn proven financial strategies</li></ul><ul id="1af99d19-cdbd-8082-bb18-fffb311abf33" class="bulleted-list"><li style="list-style-type:disc">💡 Help others while earning extra income</li></ul><ul id="1af99d19-cdbd-805b-816d-ef68dee7b9fa" class="bulleted-list"><li style="list-style-type:disc">🎯 Create multiple revenue streams</li></ul></div></figure><h2 id="1af99d19-cdbd-80de-bf30-f78a38e18d4d" class="block-color-purple">Special Offer</h2><blockquote id="1af99d19-cdbd-80c6-9219-ef55ef7c1bf3" class="block-color-purple_background">✨ <strong>Start Your Success Journey Today!</strong><br/>Get lifetime access for just ₱500 and unlock a world of valuable resources at only ₱50 per download. No monthly fees, no hidden costs—just pure value!<br/></blockquote><p id="1af99d19-cdbd-807f-95a5-c2b8c828ad58" class="">
 </p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
-<footer>
-        <p>&copy; 2025 SmartPage Hub. All rights reserved.</p>
-    </footer>
+<footer style="color: #000000; text-align: center; padding: 10px 0;">
+    <p style="font-size: 20px; font-weight: bold; margin: 0;">🚀 Unlock Your Full Potential!</p>
+    <p style="font-size: 20px; margin: 0;">Sign up now and get access to our exclusive eBooks for self-improvement, productivity, and financial success.</p>
+    <a href="signup.html" style="color: #000000; font-weight: bold; font-size: 24px; text-decoration: none;">
+        👉 Sign Up Here to Download eBooks
+    </a>
+    <p style="font-size: 18px; margin: 0;">&copy; 2025 SmartPage Hub. All rights reserved.</p>
+</footer>
+
 </body></html>
