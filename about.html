@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartPage Hub</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #000;
             color: #fff;
-            margin: 0;
-            padding: 0;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
         .hero {
             position: relative;
             width: 100%;
-            height: 40vh;
+            height: 60vh;
             background: linear-gradient(-45deg, #6a0dad, #000000);
             background-size: 400% 400%;
             display: flex;
@@ -25,32 +28,25 @@
             justify-content: center;
             text-transform: uppercase;
             color: #fff;
-            border-bottom: 5px solid #6a0dad;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             animation: gradientShift 5s infinite;
-            background-attachment: fixed;
         }
-
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         .hero h1 {
             font-size: 5rem;
             font-weight: bold;
             text-align: center;
-            color: #fff;
             text-shadow: 0 0 20px #6a0dad;
             animation: fadeIn 3s ease-in-out;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .header-buttons {
             position: fixed;
             top: 10px;
@@ -62,65 +58,36 @@
         .header-buttons a {
             text-decoration: none;
             color: white;
-            background: #6a0dad;
+            background: #4A90E2;
             padding: 10px 20px;
             border-radius: 5px;
             display: inline-block;
-            transition: background 0.3s, transform 0.3s;
+            transition: background 0.3s;
         }
-        .header-buttons a:hover {
-            background: #4A90E2;
-            transform: scale(1.1);
-        }
-
+        .header-buttons a:hover { background: #357ABD; }
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 50px auto;
         }
-        h2 {
-            color: #6a0dad;
-            text-align: center;
-        }
-        .section {
-            margin-bottom: 40px;
-            background-color: #111;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .offer-section {
+        .offer-section, .info-section {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
-
+        .offer-section {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
         .offer-card {
             background-color: #222;
             border: 2px solid #6a0dad;
             border-radius: 10px;
             padding: 20px;
             text-align: center;
-            transition: transform 0.3s, background-color 0.3s;
+            transition: transform 0.3s;
         }
         .offer-card:hover {
-            transform: translateY(-10px);
+            transform: scale(1.05);
             background-color: #6a0dad;
         }
-        .offer-card i {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-        .offer-card p {
-            margin: 0;
-        }
-
-        .info-section {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
         .info-box {
             background-color: #222;
             border: 2px solid #6a0dad;
@@ -128,10 +95,6 @@
             padding: 20px;
             text-align: center;
         }
-        .info-box h3 {
-            color: #6a0dad;
-        }
-
         .floating-btn {
             position: fixed;
             bottom: 20px;
@@ -148,18 +111,13 @@
             transform: scale(1.1);
             background-color: #4A90E2;
         }
-
         footer {
-            color: #fff;
+            color: #000000;
             text-align: center;
-            padding: 20px 0;
-            background-color: #111;
-        }
-        footer p {
-            margin: 0;
+            padding: 10px 0;
         }
         footer a {
-            color: #6a0dad;
+            color: #000000;
             font-weight: bold;
             font-size: 24px;
             text-decoration: none;
@@ -172,50 +130,56 @@
 <body>
 
 <div class="hero">
-    <h1>Smartpage Hub</h1>
+    <h1>SmartPage Hub</h1>
 </div>
 
 <div class="header-buttons">
-    <a href="#about">About</a>
-    <a href="#explore">Explore</a>
-    <a href="#login">Log In</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="explore.html">Explore</a>
+    <a href="login.html">Log In</a>
 </div>
 
 <div class="container">
+    <h2>About Smart Page Hub</h2>
+    <p>At SmartPage Hub, we provide high-quality digital resources designed to help you grow, succeed, and stay productive. Whether you want to enhance your mindset, develop new skills, or achieve financial success, we have the right tools for you—at an incredibly affordable price!</p>
+
+    <h2>Who We Are</h2>
+    <p>At SmartPage Hub, founded by JA Necesario, we're dedicated to empowering your journey toward success. As seasoned website designers and digital creators, we understand what it takes to reach your full potential.</p>
+
+    <h2>Our Mission</h2>
+    <p>We believe in the transformative power of knowledge and organization. Through practical, insightful, and actionable content, we help you build better habits, achieve financial freedom, and master new skills.</p>
+
     <h2>What We Offer</h2>
-    <div class="offer-section">
-        <div class="offer-card">
-            <i>📚</i>
-            <p><strong>Self-Improvement & Productivity eBooks</strong></p>
-        </div>
-        <div class="offer-card">
-            <i>💰</i>
-            <p><strong>Wealth & Financial Success Guides</strong></p>
-        </div>
-        <div class="offer-card">
-            <i>🎓</i>
-            <p><strong>Knowledge & Skill Mastery Digital Books</strong></p>
-        </div>
-        <div class="offer-card">
-            <i>📝</i>
-            <p><strong>Planners, Checklists & Tools</strong></p>
-        </div>
+
+<div class="offer-section">
+    <div class="offer-card">
+        <h3>📚 Self-Improvement & Productivity eBooks</h3>
+        <p>Discover proven strategies to enhance your personal growth and boost productivity. Our eBooks are designed to inspire you to become the best version of yourself.</p>
     </div>
 
-    <div class="info-section">
-        <div class="info-box">
-            <h3>Who We Are</h3>
-            <p>We are SmartPage Hub, founded by JA Necesario, dedicated to helping individuals unlock their full potential.</p>
-        </div>
-        <div class="info-box">
-            <h3>Our Mission</h3>
-            <p>We provide practical tools that help individuals achieve personal and financial success.</p>
-        </div>
-        <div class="info-box">
-            <h3>Affordable & Profitable</h3>
-            <p>Get high-quality digital products for just ₱500.</p>
-        </div>
+    <div class="offer-card">
+        <h3>💰 Wealth & Financial Success Guides</h3>
+        <p>Unlock the secrets to building wealth and achieving financial independence. Our guides provide practical steps to help you grow your income and financial stability.</p>
     </div>
+
+    <div class="offer-card">
+        <h3>🎓 Knowledge & Skill Mastery Digital Books</h3>
+        <p>Expand your expertise with our digital books designed to help you master new skills, advance your career, and stay ahead in a competitive world.</p>
+    </div>
+
+    <div class="offer-card">
+        <h3>📝 Planners, Checklists & Tools</h3>
+        <p>Stay organized and achieve your goals with our collection of practical planners, checklists, and productivity tools tailored to keep you on track.</p>
+    </div>
+</div>
+
+    <h2>Affordable & Profitable</h2>
+    <p>💡 <strong>Download our resources!</strong> Get high-quality digital books and planners without breaking the bank.</p>
+    <p>🚀 <strong>Turn knowledge into income!</strong> Our digital products can also be a great way to start your passive income journey. Learn from our financial guides, or use our eBooks and templates to help others while earning extra cash!</p>
+
+    <h2>Lifetime Access for Just ₱500!</h2>
+    <p>✅ <strong>Sign up for only ₱500</strong> and enjoy <strong>lifetime access</strong> to your account. No monthly fees—just unlimited downloads of valuable resources to help you grow and succeed!</p>
 </div>
 
 <a class="floating-btn" href="#signup">👉 Sign Up Now</a>
@@ -228,7 +192,6 @@
     </a>
     <p style="font-size: 18px; margin: 0;">&copy; 2025 SmartPage Hub. All rights reserved.</p>
 </footer>
-
 
 </body>
 </html>
