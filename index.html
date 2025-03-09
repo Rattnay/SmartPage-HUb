@@ -146,7 +146,6 @@
    <div class="header-buttons">
     <a href="about.html" aria-label="About page">About</a>
     <a href="explore.html" aria-label="Explore eBooks">Explore</a>
-    <a href="signup.html" aria-label="Sign up for an account">Sign Up</a>
     <a href="login.html" aria-label="Login to your account">Log In</a>
 </div>
   <nav>
@@ -177,6 +176,7 @@
             </div>
         </div>
     </nav>
+    
     <section class="banner">
         <img src="upper.png" alt="eBook Sale Banner" onerror="this.src='placeholder.png';">
     </section>
@@ -198,6 +198,45 @@
             <p>Develop new skills and expand your knowledge.</p>
         </div>
     </section>
+    <section class="login-benefits">
+    <h2>Why Sign In?</h2>
+    <ul>
+        <li><strong>Personalized Recommendations:</strong> Get ebook suggestions based on your interests.</li>
+        <li><strong>Exclusive Offers:</strong> Members get discounts, special deals, and more!</li>
+        <li><strong>Track Your Progress:</strong> Keep tabs on your reading history and achievements.</li>
+    </ul>
+    <a href="signup.html" class="cta-button">Sign Up Today</a>
+</section>
+<section class="limited-time-offer">
+    <p><strong>Hurry! Limited-Time Offer:</strong> 20% off for all new members! <span id="countdown"></span></p>
+    <a href="signup.html" class="cta-button">Sign Up Now</a>
+</section>
+
+<script>
+    // Countdown Timer (Example: 5 minutes)
+    let countdownDate = new Date(new Date().getTime() + 5 * 60 * 1000).getTime();
+    let x = setInterval(function() {
+        let now = new Date().getTime();
+        let distance = countdownDate - now;
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML = minutes + "m " + seconds + "s ";
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+</script>
+<section class="testimonials">
+    <h2>What Our Customers Are Saying</h2>
+    <div class="testimonial">
+        <p>"SmartPage Hub has completely transformed my productivity! The ebooks are so informative and practical." - Sarah K.</p>
+    </div>
+    <div class="testimonial">
+        <p>"I found the perfect financial strategies ebook that helped me get my finances in order. Highly recommend!" - John M.</p>
+    </div>
+</section>
+<a href="signup.html" class="cta-button">Create Your Account and Start Reading Today!</a>
     <footer>
         <p>&copy; 2025 SmartPage Hub. All rights reserved.</p>
     </footer>
