@@ -77,53 +77,7 @@
             text-decoration: underline;
         }
          /* Navigation */
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            background: #222; 
-            padding: 10px 20px; 
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-        .nav-links a { 
-            color: white; 
-            text-decoration: none; 
-            padding: 10px 20px; 
-        }
-        .nav-links a:hover { background: #555; }
-
-        /* Dropdown Menu */
-        .dropdown {
-            position: relative;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: #333;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.2);
-            z-index: 1200;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 10px;
-            display: block;
-            text-decoration: none;
-        }
-        .dropdown-content a:hover {
-            background: #555;
-        }
+       
 
         /* Button styles */
         .cta-button {
@@ -215,6 +169,35 @@
             animation: scroll 30s linear infinite;
         }
     }
+    <style>
+    .menu-toggle {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        padding: 10px;
+    }
+    @media (max-width: 768px) {
+        .menu-toggle { display: block; }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background: #222;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+        }
+        .nav-links.active { display: flex; }
+    }
+</style>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+    }
+</script>
 </style>
 <body>
    <div class="header-buttons">
@@ -223,34 +206,37 @@
         <a href="login.html" aria-label="Login to your account">Log In</a>
     </div>
 
-    <nav>
-        <div class="nav-links" id="navLinks">
-            <div class="dropdown">
-                <a href="#">Self-Improvement & Productivity</a>
-                <div class="dropdown-content">
-                    <a href="personal_growth1.html">Personal Development</a>
-                    <a href="personal_growth2.html">Productivity Hacks</a>
-                    <a href="personal_growth3.html">Mental Wellness</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a href="#">Wealth & Financial Success</a>
-                <div class="dropdown-content">
-                    <a href="business_finance1.html">Investment Strategies</a>
-                    <a href="business_finance2.html">Entrepreneurship</a>
-                    <a href="business_finance3.html">Money Management</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <a href="#">Knowledge & Skill Mastery</a>
-                <div class="dropdown-content">
-                    <a href="education_skills1.html">Coding & Tech</a>
-                    <a href="education_skills2.html">Language Learning</a>
-                    <a href="education_skills3.html">Career Growth</a>
-                </div>
+   <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        &#9776; <!-- Hamburger Icon -->
+    </div>
+    <div class="nav-links" id="navLinks">
+        <div class="dropdown">
+            <a href="#">Self-Improvement & Productivity</a>
+            <div class="dropdown-content">
+                <a href="personal_growth1.html">Personal Development</a>
+                <a href="personal_growth2.html">Productivity Hacks</a>
+                <a href="personal_growth3.html">Mental Wellness</a>
             </div>
         </div>
-    </nav>
+        <div class="dropdown">
+            <a href="#">Wealth & Financial Success</a>
+            <div class="dropdown-content">
+                <a href="business_finance1.html">Investment Strategies</a>
+                <a href="business_finance2.html">Entrepreneurship</a>
+                <a href="business_finance3.html">Money Management</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="#">Knowledge & Skill Mastery</a>
+            <div class="dropdown-content">
+                <a href="education_skills1.html">Coding & Tech</a>
+                <a href="education_skills2.html">Language Learning</a>
+                <a href="education_skills3.html">Career Growth</a>
+            </div>
+        </div>
+    </div>
+</nav>
 
     <main>
         <section class="banner">
