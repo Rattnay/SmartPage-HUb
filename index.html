@@ -270,32 +270,7 @@
 
 
 
-    <section class="limited-time-offer">
-        <h2>💜 Limited-Time Offer 💜</h2>
-        <p>Hurry! Get <strong>20% off</strong> for all new members!</p>
-        <div id="countdown"></div>
-    </section>
-</div>
-
-
-<script>
-    let countdownDate = localStorage.getItem("countdown") || new Date().getTime() + 5 * 60 * 1000;
-localStorage.setItem("countdown", countdownDate);
-
-let x = setInterval(function() {
-    let now = new Date().getTime();
-    let distance = countdownDate - now;
-    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    document.getElementById("countdown").innerHTML = minutes + "m " + seconds + "s ";
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
-        localStorage.removeItem("countdown");
-    }
-}, 1000);
-
-</script>
+ 
 
 
     
