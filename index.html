@@ -181,10 +181,14 @@
     }
 
     .slide-track {
-        display: flex;
-        animation: scroll 25s linear infinite;
-        width: calc(300px * 30); /* Adjust width based on 30 books */
-    }
+    animation: scroll 25s linear infinite;
+    width: calc(315px * 30); /* Adjusted for 30 books */
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-9450px); } /* 315px per book */
+}
 
     .slide {
         flex: 0 0 300px;
@@ -259,20 +263,16 @@
         
 <h1>Access Exclusive Content & Offers</h1>
 
-<div class="slideshow-container">
-    <div class="slide-track">
-        <!-- Generate 30 book covers -->
-        <script>
-            for(let i = 1; i <= 30; i++) {
-                document.write(
-                    <div class="slide">
-                        <img src="EXPLORE/${i}.jfif" alt="${i}">
-                    </div>
-                );
-            }
-        </script>
-    </div>
-</div>
+<script>
+   for (let i = 1; i <= 30; i++) {
+    document.write(`
+        <div class="slide">
+            <img src="EXPLORE/${i}.jfif" alt="${i}">
+        </div>
+    `);
+}
+</script>
+
 
 
 
@@ -305,18 +305,22 @@
 </section>
 
 <script>
-    let countdownDate = new Date(new Date().getTime() + 5 * 60 * 1000).getTime();
-    let x = setInterval(function() {
-        let now = new Date().getTime();
-        let distance = countdownDate - now;
-        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        document.getElementById("countdown").innerHTML = minutes + "m " + seconds + "s ";
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("countdown").innerHTML = "EXPIRED";
-        }
-    }, 1000);
+    let countdownDate = localStorage.getItem("countdown") || new Date().getTime() + 5 * 60 * 1000;
+localStorage.setItem("countdown", countdownDate);
+
+let x = setInterval(function() {
+    let now = new Date().getTime();
+    let distance = countdownDate - now;
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("countdown").innerHTML = minutes + "m " + seconds + "s ";
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "EXPIRED";
+        localStorage.removeItem("countdown");
+    }
+}, 1000);
+
 </script>
 
 
