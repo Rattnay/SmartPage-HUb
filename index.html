@@ -193,6 +193,22 @@
         .limited ul li {
             margin: 10px 0;
         }
+        .limited-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    gap: 20px; /* Adds spacing between items */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.limited, .limited-time-offer {
+    flex: 1; /* Makes both sections equal width */
+    min-width: 300px; /* Ensures proper layout on smaller screens */
+}
+
         .cta-button {
             display: inline-block;
             background: #ffcc00;
@@ -318,8 +334,8 @@
     </div>
 </div>
 
-
- <div class="limited">
+<div class="limited-container">
+    <div class="limited">
         <h1>🔥 LIMITED-TIME OFFER! 🔥</h1>
         <h2>📚 Get Lifetime Access for Only 500 Pesos! 🎉</h2>
         <ul>
@@ -331,35 +347,13 @@
         <a href="#" class="cta-button">🔹 Sign in Now & Unlock Your Access! 🔹</a>
     </div>
 
+    <section class="limited-time-offer">
+        <h2>💜 Limited-Time Offer 💜</h2>
+        <p>Hurry! Get <strong>20% off</strong> for all new members!</p>
+        <div id="countdown"></div>
+    </section>
+</div>
 
-<section class="limited-time-offer" style="
-    text-align: center;
-    background: linear-gradient(135deg, #7b2cbf, #4c1c85);
-    color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(123, 44, 191, 0.3);
-    max-width: 600px;
-    margin-right: 10px;
-    font-family: 'Arial', sans-serif;
-    left: 20px;
-">
-    <h2 style="font-size: 2rem; margin-bottom: 10px; text-transform: uppercase;">
-        💜 Limited-Time Offer 💜
-    </h2>
-    <p style="font-size: 1.2rem;">Hurry! Get <strong>20% off</strong> for all new members!</p>
-    <div id="countdown" style="
-        font-size: 1.5rem;
-        font-weight: bold;
-        background-color: #222;
-        color: #fff;
-        padding: 15px;
-        border-radius: 5px;
-        margin-top: 10px;
-        display: inline-block;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    "></div>
-</section>
 
 <script>
     let countdownDate = localStorage.getItem("countdown") || new Date().getTime() + 5 * 60 * 1000;
