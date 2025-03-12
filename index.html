@@ -47,6 +47,21 @@
             color: white;
             text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
             transition: transform 0.3s ease, color 0.3s ease;
+             position: relative;
+    animation: moveUp 1.5s ease-out forwards; /* Smooth upward movement */
+}
+
+@keyframes moveUp {
+    from {
+        transform: translateY(50px); /* Start lower */
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0); /* End at normal position */
+        opacity: 1;
+    }
+}
+
         }
         h1:hover {
             color: #4A90E2;
