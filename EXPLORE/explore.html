@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My eBooks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+        }
+        .header .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .header .nav {
+            display: flex;
+            gap: 15px;
+        }
+        .header button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .header button:hover {
+            background-color: #777;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .search-box {
+            border: none;
+            outline: none;
+            padding: 5px;
+        }
+        .search-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 5px;
+        }
+        .categories-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .categories-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .category {
+            text-decoration: none;
+            color: #007BFF;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+        }
+        .category img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .category:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .book {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .book:hover {
+            transform: scale(1.05);
+        }
+        .book img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">JAEbookShop</div>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search books...">
+            <button class="search-button">🔍</button>
+        </div>
+        <div class="nav">
+            <button onclick="location.href='index.html'">Home</button>
+            <button onclick="location.href='signup.html'">Sign Up</button>
+            <button onclick="location.href='login.html'">Log In</button>
+        </div>
+    </div>
+    <div class="categories-container">
+        <div class="categories-title">Book Categories</div>
+        <div class="categories">
+            <a href="personal_growth.html" class="category">
+                <img src="display1.png" alt="Self-Improvement">
+                Self-Improvement & Productivity
+            </a>
+            <a href="business_finance.html" class="category">
+                <img src="display2.png" alt="Wealth & Financial Success">
+                Wealth & Financial Success
+            </a>
+            <a href="website/education_skills.html" class="category">
+                <img src="display3.png" alt="Knowledge & Skill Mastery">
+                Knowledge & Skill Mastery
+            </a>
+        </div>
+    </div>
+    <h1>My eBooks</h1>
+    <div class="container" id="books-container"></div>
+    <script>
+        const booksContainer = document.getElementById("books-container");
+        for (let i = 1; i <= 45; i++) {
+            const bookDiv = document.createElement("div");
+            bookDiv.className = "book";
+            bookDiv.innerHTML = `
+                <a href="book-details/book${i}.html">
+                    <img src="EXPLORE/${i}.jfif" alt="Book ${i}" loading="lazy">
+                </a>
+            `;
+            booksContainer.appendChild(bookDiv);
+        }
+    </script>
+</body>
+</html>
