@@ -214,7 +214,35 @@ margin-top: 150px;
             color: #4A90E2;
             transform: scale(1.05);
         }
+         #timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+        }
     </style>
+    </style>
+    <script>
+        function startCountdown(duration) {
+            let timer = duration, minutes, seconds;
+            let countdownElement = document.getElementById("timer");
+
+            let interval = setInterval(function () {
+                minutes = Math.floor(timer / 60);
+                seconds = timer % 60;
+                countdownElement.textContent = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    window.location.href = "signup.html"; // Redirect when timer ends
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let countdownTime = 5 * 60; // 5 minutes countdown
+            startCountdown(countdownTime);
+        };
+    </script>
 </head>
 
 
@@ -288,6 +316,9 @@ margin-top: 150px;
         </div>
     </div>
 </div>
+      <h1>Hurry! Sign up before time runs out!</h1>
+    <p>Offer expires in: <span id="timer">5:00</span></p>
+    <a href="signup.html"><button>Sign Up Now</button></a>
 
 <footer>
     <p>&copy; 2025 SmartPage Hub. All rights reserved.</p>
