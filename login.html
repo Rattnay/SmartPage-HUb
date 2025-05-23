@@ -21,9 +21,9 @@
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 400px;
+      text-align: center;
     }
     h2 {
-      text-align: center;
       margin-bottom: 1.5rem;
     }
     input[type="text"],
@@ -51,6 +51,18 @@
     .error {
       color: red;
       font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .signup-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .signup-link a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    .signup-link a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -63,6 +75,9 @@
       <div class="error" id="errorMessage"></div>
       <button type="submit">Login</button>
     </form>
+    <div class="signup-link">
+      Don't have an account? <a href="signup.html">Sign up here</a>
+    </div>
   </div>
 
   <script>
@@ -74,8 +89,7 @@
 
       // Dummy login validation
       if (username === "admin" && password === "1234") {
-        alert("Login successful!");
-        // Redirect or do something
+        window.location.href = "dashboard.html";
       } else {
         errorMessage.textContent = "Invalid username or password.";
       }
