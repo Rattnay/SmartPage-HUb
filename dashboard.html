@@ -19,6 +19,16 @@
     h1 {
       color: #0077cc;
     }
+    #searchInput {
+      width: 100%;
+      max-width: 600px;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
     .book-list {
       max-width: 600px;
       margin: 0 auto;
@@ -64,7 +74,10 @@
     <p>Select a book below to download the PDF</p>
   </header>
 
-  <section class="book-list">
+  <!-- Search input -->
+  <input type="text" id="searchInput" placeholder="Search books..." />
+
+  <section class="book-list" id="bookList">
     <div class="book-item">
       <span class="book-title">Mindset Boost for Mindset and Productivity</span>
       <a href="pdfs/mindset-boost.pdf" class="download-btn" download>Download PDF</a>
@@ -83,5 +96,24 @@
   <footer>
     &copy; 2025 Your Company Name. All rights reserved.
   </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const bookList = document.getElementById('bookList');
+    const books = bookList.getElementsByClassName('book-item');
+
+    searchInput.addEventListener('keyup', function() {
+      const filter = searchInput.value.toLowerCase();
+
+      for (let i = 0; i < books.length; i++) {
+        const title = books[i].getElementsByClassName('book-title')[0].textContent.toLowerCase();
+        if (title.includes(filter)) {
+          books[i].style.display = '';
+        } else {
+          books[i].style.display = 'none';
+        }
+      }
+    });
+  </script>
 </body>
 </html>
