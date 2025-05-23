@@ -98,6 +98,7 @@
 
   </style>
 </head>
+
 <body>
   <header>
   <h1>Welcome to Your Book Download Center</h1>
@@ -105,6 +106,11 @@
 </header>
 
 <input type="text" id="searchInput" placeholder="Search books..." />
+  searchInput.addEventListener('input', function() {
+  console.log('Search input changed:', this.value);
+  // ... rest of filtering logic
+});
+
 <div class="book-list">
  <!-- START: 50 Books with JFIF Covers -->
 <div class="book-item">
