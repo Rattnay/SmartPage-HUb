@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Customer Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    .dashboard-container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 30px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .confirmation {
+      background: #d4edda;
+      color: #155724;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .order-details, .downloads, .support {
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #34495e;
+      border-bottom: 2px solid #2980b9;
+      padding-bottom: 5px;
+    }
+    .download-link {
+      display: inline-block;
+      margin-right: 15px;
+      margin-top: 5px;
+      padding: 10px 15px;
+      background: #2980b9;
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .download-link:hover {
+      background: #3498db;
+    }
+    .support a {
+      color: #2980b9;
+      text-decoration: none;
+    }
+    .support a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <h1>Thank You for Your Purchase!</h1>
+    <div class="confirmation">
+      Your payment was successful. Your order is confirmed.
+    </div>
+    
+    <div class="order-details">
+      <div class="section-title">Order Details</div>
+      <p><strong>Order ID:</strong> #123456789</p>
+      <p><strong>Product:</strong> Mindset Boost eBook</p>
+      <p><strong>Amount Paid:</strong> $19.99</p>
+      <p><strong>Purchase Date:</strong> May 23, 2025</p>
+    </div>
+    
+    <div class="downloads">
+      <div class="section-title">Download Your Products</div>
+      <a href="files/mindset-boost-ebook.pdf" class="download-link" target="_blank" download>Download eBook PDF</a>
+      <a href="files/mindset-boost-ebook.epub" class="download-link" target="_blank" download>Download ePub</a>
+    </div>
+    
+    <div class="support">
+      <div class="section-title">Need Help?</div>
+      <p>If you have any questions or issues, please <a href="mailto:support@yourwebsite.com">contact our support team</a>.</p>
+    </div>
+  </div>
+</body>
+</html>
