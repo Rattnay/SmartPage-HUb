@@ -3,92 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Customer Dashboard</title>
+  <title>Your Book Downloads</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f5f7fa;
+      background: #f9f9f9;
       margin: 0;
-      padding: 0;
+      padding: 20px;
+      color: #333;
     }
-    .dashboard-container {
-      max-width: 800px;
-      margin: 40px auto;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      padding: 30px;
+    header {
+      text-align: center;
+      margin-bottom: 30px;
     }
     h1 {
-      color: #2c3e50;
+      color: #0077cc;
     }
-    .confirmation {
-      background: #d4edda;
-      color: #155724;
-      padding: 20px;
-      border-radius: 5px;
-      margin-bottom: 20px;
+    .book-list {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .book-item {
+      background: white;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .book-title {
       font-weight: bold;
-      text-align: center;
     }
-    .order-details, .downloads, .support {
-      margin-bottom: 20px;
-    }
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #34495e;
-      border-bottom: 2px solid #2980b9;
-      padding-bottom: 5px;
-    }
-    .download-link {
-      display: inline-block;
-      margin-right: 15px;
-      margin-top: 5px;
-      padding: 10px 15px;
-      background: #2980b9;
+    .download-btn {
+      background-color: #0077cc;
       color: white;
+      border: none;
       border-radius: 4px;
+      padding: 10px 16px;
       text-decoration: none;
-      transition: background 0.3s ease;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    .download-link:hover {
-      background: #3498db;
+    .download-btn:hover {
+      background-color: #005fa3;
     }
-    .support a {
-      color: #2980b9;
-      text-decoration: none;
-    }
-    .support a:hover {
-      text-decoration: underline;
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <div class="dashboard-container">
-    <h1>Thank You for Your Purchase!</h1>
-    <div class="confirmation">
-      Your payment was successful. Your order is confirmed.
+  <header>
+    <h1>Welcome to Your Book Download Center</h1>
+    <p>Select a book below to download the PDF</p>
+  </header>
+
+  <section class="book-list">
+    <div class="book-item">
+      <span class="book-title">Mindset Boost for Mindset and Productivity</span>
+      <a href="pdfs/mindset-boost.pdf" class="download-btn" download>Download PDF</a>
     </div>
-    
-    <div class="order-details">
-      <div class="section-title">Order Details</div>
-      <p><strong>Order ID:</strong> #123456789</p>
-      <p><strong>Product:</strong> Mindset Boost eBook</p>
-      <p><strong>Amount Paid:</strong> $19.99</p>
-      <p><strong>Purchase Date:</strong> May 23, 2025</p>
+    <div class="book-item">
+      <span class="book-title">Digital Budget Planner</span>
+      <a href="pdfs/digital-budget-planner.pdf" class="download-btn" download>Download PDF</a>
     </div>
-    
-    <div class="downloads">
-      <div class="section-title">Download Your Products</div>
-      <a href="files/mindset-boost-ebook.pdf" class="download-link" target="_blank" download>Download eBook PDF</a>
-      <a href="files/mindset-boost-ebook.epub" class="download-link" target="_blank" download>Download ePub</a>
+    <div class="book-item">
+      <span class="book-title">Essential Tools for Productivity</span>
+      <a href="pdfs/essential-tools.pdf" class="download-btn" download>Download PDF</a>
     </div>
-    
-    <div class="support">
-      <div class="section-title">Need Help?</div>
-      <p>If you have any questions or issues, please <a href="mailto:support@yourwebsite.com">contact our support team</a>.</p>
-    </div>
-  </div>
+    <!-- Add more books here -->
+  </section>
+
+  <footer>
+    &copy; 2025 Your Company Name. All rights reserved.
+  </footer>
 </body>
 </html>
