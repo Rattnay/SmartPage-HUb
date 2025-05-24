@@ -74,12 +74,29 @@
     </form>
   </div>
 
-  <script>
-    const form = document.getElementById('bookForm');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('Book submitted! (This is a sample only, data is not saved.)');
-    });
-  </script>
+<script>
+  const scriptURL = 'YOUR_WEB_APP_URL_HERE';
+
+  document.getElementById('uploadForm').addEventListener('submit', e => {
+    e.preventDefault();
+
+    const bookData = {
+      title: document.getElementById('title').value,
+      author: document.getElementById('author').value,
+      description: document.getElementById('description').value,
+      link: document.getElementById('link').value,
+      price: document.getElementById('price').value
+    };
+
+    fetch(scriptURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(bookData)
+    })
+    .then(() => alert('Book uploaded successfully!'))
+    .catch(err => alert('Upload failed: ' + err.message));
+  });
+</script>
+
 </body>
 </html>
