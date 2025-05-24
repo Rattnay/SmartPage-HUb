@@ -2,487 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Book Downloads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Your Book</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      margin: 0;
+      background: #f5f5f5;
       padding: 20px;
-      color: #333;
     }
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    h1 {
-      color: #0077cc;
-    }
-    #searchInput {
-      width: 100%;
+    .container {
       max-width: 600px;
-      padding: 10px 15px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin: 0 auto 20px auto;
-      display: block;
-    }
-    .book-list {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .book-item {
+      margin: auto;
       background: white;
-      border-radius: 6px;
-      padding: 15px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .book-title {
-      font-weight: bold;
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
     }
-    .download-btn {
-      background-color: #0077cc;
+    label {
+      display: block;
+      margin: 12px 0 4px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      width: 100%;
+      background: #4CAF50;
       color: white;
       border: none;
       border-radius: 4px;
-      padding: 10px 16px;
-      text-decoration: none;
-      font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
-    .download-btn:hover {
-      background-color: #005fa3;
+    button:hover {
+      background: #45a049;
     }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #777;
-    }
-    .book-cover {
-  width: 60px;
-  height: 80px;
-  object-fit: cover;
-  margin-right: 15px;
-  border-radius: 4px;
-}
-.book-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 15px;
-  border-bottom: 1px solid #ddd;
-}
-.book-title {
-  font-size: 16px;
-  font-weight: 500;
-}
-.download-btn {
-  background: #4caf50;
-  color: white;
-  padding: 7px 12px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 600;
-}
-.download-btn:hover {
-  background: #45a049;
-}
-
   </style>
 </head>
-
 <body>
-  <header>
-  <h1>Welcome to Your Book Download Center</h1>
-  <p>Select a book below to download the PDF</p>
-</header>
+  <div class="container">
+    <h2>Book Submission Form</h2>
+    <form id="bookForm">
+      <label for="title">Book Title</label>
+      <input type="text" id="title" name="title" required />
 
-<input type="text" id="searchInput" placeholder="Search books..." />
-<div class="book-list">
- <!-- START: 50 Books with JFIF Covers -->
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/1.jfif" alt="Book 1 Cover" class="book-cover" />
-    <span class="book-title">Book Title 1</span>
-  </div>
-  <a href="pdfs/book-1.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/2.jfif" alt="Book 2 Cover" class="book-cover" />
-    <span class="book-title">Book Title 2</span>
-  </div>
-  <a href="pdfs/book-2.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/3.jfif" alt="Book 3 Cover" class="book-cover" />
-    <span class="book-title">Book Title 3</span>
-  </div>
-  <a href="pdfs/book-3.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/4.jfif" alt="Book 4 Cover" class="book-cover" />
-    <span class="book-title">Book Title 4</span>
-  </div>
-  <a href="pdfs/book-4.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/5.jfif" alt="Book 5 Cover" class="book-cover" />
-    <span class="book-title">Book Title 5</span>
-  </div>
-  <a href="pdfs/book-5.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/6.jfif" alt="Book 6 Cover" class="book-cover" />
-    <span class="book-title">Book Title 6</span>
-  </div>
-  <a href="pdfs/book-6.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/7.jfif" alt="Book 7 Cover" class="book-cover" />
-    <span class="book-title">Book Title 7</span>
-  </div>
-  <a href="pdfs/book-7.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/8.jfif" alt="Book 8 Cover" class="book-cover" />
-    <span class="book-title">Book Title 8</span>
-  </div>
-  <a href="pdfs/book-8.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/9.jfif" alt="Book 9 Cover" class="book-cover" />
-    <span class="book-title">Book Title 9</span>
-  </div>
-  <a href="pdfs/book-9.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/10.jfif" alt="Book 10 Cover" class="book-cover" />
-    <span class="book-title">Book Title 10</span>
-  </div>
-  <a href="pdfs/book-10.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/11.jfif" alt="Book 11 Cover" class="book-cover" />
-    <span class="book-title">Book Title 11</span>
-  </div>
-  <a href="pdfs/book-11.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/12.jfif" alt="Book 12 Cover" class="book-cover" />
-    <span class="book-title">Book Title 12</span>
-  </div>
-  <a href="pdfs/book-12.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/13.jfif" alt="Book 13 Cover" class="book-cover" />
-    <span class="book-title">Book Title 13</span>
-  </div>
-  <a href="pdfs/book-13.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/14.jfif" alt="Book 14 Cover" class="book-cover" />
-    <span class="book-title">Book Title 14</span>
-  </div>
-  <a href="pdfs/book-14.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/15.jfif" alt="Book 15 Cover" class="book-cover" />
-    <span class="book-title">Book Title 15</span>
-  </div>
-  <a href="pdfs/book-15.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/16.jfif" alt="Book 16 Cover" class="book-cover" />
-    <span class="book-title">Book Title 16</span>
-  </div>
-  <a href="pdfs/book-16.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/17.jfif" alt="Book 17 Cover" class="book-cover" />
-    <span class="book-title">Book Title 17</span>
-  </div>
-  <a href="pdfs/book-17.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/18.jfif" alt="Book 18 Cover" class="book-cover" />
-    <span class="book-title">Book Title 18</span>
-  </div>
-  <a href="pdfs/book-18.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/19.jfif" alt="Book 19 Cover" class="book-cover" />
-    <span class="book-title">Book Title 19</span>
-  </div>
-  <a href="pdfs/book-19.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/20.jfif" alt="Book 20 Cover" class="book-cover" />
-    <span class="book-title">Book Title 20</span>
-  </div>
-  <a href="pdfs/book-20.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/21.jfif" alt="Book 21 Cover" class="book-cover" />
-    <span class="book-title">Book Title 21</span>
-  </div>
-  <a href="pdfs/book-21.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/22.jfif" alt="Book 22 Cover" class="book-cover" />
-    <span class="book-title">Book Title 22</span>
-  </div>
-  <a href="pdfs/book-22.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/23.jfif" alt="Book 23 Cover" class="book-cover" />
-    <span class="book-title">Book Title 23</span>
-  </div>
-  <a href="pdfs/book-23.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/24.jfif" alt="Book 24 Cover" class="book-cover" />
-    <span class="book-title">Book Title 24</span>
-  </div>
-  <a href="pdfs/book-24.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/25.jfif" alt="Book 25 Cover" class="book-cover" />
-    <span class="book-title">Book Title 25</span>
-  </div>
-  <a href="pdfs/book-25.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/26.jfif" alt="Book 26 Cover" class="book-cover" />
-    <span class="book-title">Book Title 26</span>
-  </div>
-  <a href="pdfs/book-26.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/27.jfif" alt="Book 27 Cover" class="book-cover" />
-    <span class="book-title">Book Title 27</span>
-  </div>
-  <a href="pdfs/book-27.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/28.jfif" alt="Book 28 Cover" class="book-cover" />
-    <span class="book-title">Book Title 28</span>
-  </div>
-  <a href="pdfs/book-28.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/29.jfif" alt="Book 29 Cover" class="book-cover" />
-    <span class="book-title">Book Title 29</span>
-  </div>
-  <a href="pdfs/book-29.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/30.jfif" alt="Book 30 Cover" class="book-cover" />
-    <span class="book-title">Book Title 30</span>
-  </div>
-  <a href="pdfs/book-30.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/31.jfif" alt="Book 31 Cover" class="book-cover" />
-    <span class="book-title">Book Title 31</span>
-  </div>
-  <a href="pdfs/book-31.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/32.jfif" alt="Book 32 Cover" class="book-cover" />
-    <span class="book-title">Book Title 32</span>
-  </div>
-  <a href="pdfs/book-32.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/33.jfif" alt="Book 33 Cover" class="book-cover" />
-    <span class="book-title">Book Title 33</span>
-  </div>
-  <a href="pdfs/book-33.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/34.jfif" alt="Book 34 Cover" class="book-cover" />
-    <span class="book-title">Book Title 34</span>
-  </div>
-  <a href="pdfs/book-34.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/35.jfif" alt="Book 35 Cover" class="book-cover" />
-    <span class="book-title">Book Title 35</span>
-  </div>
-  <a href="pdfs/book-35.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/36.jfif" alt="Book 36 Cover" class="book-cover" />
-    <span class="book-title">Book Title 36</span>
-  </div>
-  <a href="pdfs/book-36.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/37.jfif" alt="Book 37 Cover" class="book-cover" />
-    <span class="book-title">Book Title 37</span>
-  </div>
-  <a href="pdfs/book-37.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/38.jfif" alt="Book 38 Cover" class="book-cover" />
-    <span class="book-title">Book Title 38</span>
-  </div>
-  <a href="pdfs/book-38.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/39.jfif" alt="Book 39 Cover" class="book-cover" />
-    <span class="book-title">Book Title 39</span>
-  </div>
-  <a href="pdfs/book-39.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/40.jfif" alt="Book 40 Cover" class="book-cover" />
-    <span class="book-title">Book Title 40</span>
-  </div>
-  <a href="pdfs/book-40.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/41.jfif" alt="Book 41 Cover" class="book-cover" />
-    <span class="book-title">Book Title 41</span>
-  </div>
-  <a href="pdfs/book-41.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/42.jfif" alt="Book 42 Cover" class="book-cover" />
-    <span class="book-title">Book Title 42</span>
-  </div>
-  <a href="pdfs/book-42.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/43.jfif" alt="Book 43 Cover" class="book-cover" />
-    <span class="book-title">Book Title 43</span>
-  </div>
-  <a href="pdfs/book-43.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/44.jfif" alt="Book 44 Cover" class="book-cover" />
-    <span class="book-title">Book Title 44</span>
-  </div>
-  <a href="pdfs/book-44.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/45.jfif" alt="Book 45 Cover" class="book-cover" />
-    <span class="book-title">Book Title 45</span>
-  </div>
-  <a href="pdfs/book-45.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/46.jfif" alt="Book 46 Cover" class="book-cover" />
-    <span class="book-title">Book Title 46</span>
-  </div>
-  <a href="pdfs/book-46.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/47.jfif" alt="Book 47 Cover" class="book-cover" />
-    <span class="book-title">Book Title 47</span>
-  </div>
-  <a href="pdfs/book-47.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/48.jfif" alt="Book 48 Cover" class="book-cover" />
-    <span class="book-title">Book Title 48</span>
-  </div>
-  <a href="pdfs/book-48.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/49.jfif" alt="Book 49 Cover" class="book-cover" />
-    <span class="book-title">Book Title 49</span>
-  </div>
-  <a href="pdfs/book-49.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<div class="book-item">
-  <div style="display: flex; align-items: center; flex: 1;">
-    <img src="EXPLORE/50.jfif" alt="Book 50 Cover" class="book-cover" />
-    <span class="book-title">Book Title 50</span>
-  </div>
-  <a href="pdfs/book-50.pdf" class="download-btn" download>Download PDF</a>
-</div>
-<!-- END: 50 Books -->
-  </div>
+      <label for="author">Author</label>
+      <input type="text" id="author" name="author" required />
 
+      <label for="genre">Genre</label>
+      <input type="text" id="genre" name="genre" />
 
+      <label for="price">Price (₱)</label>
+      <input type="number" id="price" name="price" step="0.01" />
 
-  <footer>
-    &copy; 2025 Your Company Name. All rights reserved.
-  </footer>
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="5"></textarea>
+
+      <label for="cover">Upload Cover Image</label>
+      <input type="file" id="cover" name="cover" accept="image/*" />
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 
   <script>
-    const searchInput = document.getElementById('searchInput');
-    const bookList = document.getElementById('bookList');
-    const books = bookList.getElementsByClassName('book-item');
-
-    searchInput.addEventListener('keyup', function() {
-      const filter = searchInput.value.toLowerCase();
-
-      for (let i = 0; i < books.length; i++) {
-        const title = books[i].getElementsByClassName('book-title')[0].textContent.toLowerCase();
-        if (title.includes(filter)) {
-          books[i].style.display = '';
-        } else {
-          books[i].style.display = 'none';
-        }
-      }
+    const form = document.getElementById('bookForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Book submitted! (This is a sample only, data is not saved.)');
     });
   </script>
 </body>
