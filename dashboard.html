@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Book Downloads</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #0077cc;
+    }
+    #searchInput {
+      width: 100%;
+      max-width: 600px;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+    .book-list {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .book-item {
+      background: white;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .book-title {
+      font-weight: bold;
+    }
+    .download-btn {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 16px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .download-btn:hover {
+      background-color: #005fa3;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Your Book Download Center</h1>
+    <p>Select a book below to download the PDF</p>
+  </header>
+
+  <!-- Search input -->
+  <input type="text" id="searchInput" placeholder="Search books..." />
+
+  <section class="book-list" id="bookList">
+    <div class="book-item">
+      <span class="book-title">Mindset Boost for Mindset and Productivity</span>
+      <a href="pdfs/mindset-boost.pdf" class="download-btn" download>Download PDF</a>
+    </div>
+    <div class="book-item">
+      <span class="book-title">Digital Budget Planner</span>
+      <a href="pdfs/digital-budget-planner.pdf" class="download-btn" download>Download PDF</a>
+    </div>
+    <div class="book-item">
+      <span class="book-title">Essential Tools for Productivity</span>
+      <a href="pdfs/essential-tools.pdf" class="download-btn" download>Download PDF</a>
+    </div>
+    <!-- Add more books here -->
+  </section>
+
+  <footer>
+    &copy; 2025 Your Company Name. All rights reserved.
+  </footer>
+
+  <script>
+    const bookTitles = [
+  "Mindset Boost for Mindset and Productivity",
+  "Digital Budget Planner",
+  "Essential Tools for Productivity",
+  "Book Title 4",
+  "Book Title 5",
+  "Book Title 6",
+  "Book Title 7",
+  "Book Title 8",
+  "Book Title 9",
+  "Book Title 10",
+  "Book Title 11",
+  "Book Title 12",
+  "Book Title 13",
+  "Book Title 14",
+  "Book Title 15",
+  "Book Title 16",
+  "Book Title 17",
+  "Book Title 18",
+  "Book Title 19",
+  "Book Title 20",
+  "Book Title 21",
+  "Book Title 22",
+  "Book Title 23",
+  "Book Title 24",
+  "Book Title 25",
+  "Book Title 26",
+  "Book Title 27",
+  "Book Title 28",
+  "Book Title 29",
+  "Book Title 30",
+  "Book Title 31",
+  "Book Title 32",
+  "Book Title 33",
+  "Book Title 34",
+  "Book Title 35",
+  "Book Title 36",
+  "Book Title 37",
+  "Book Title 38",
+  "Book Title 39",
+  "Book Title 40",
+  "Book Title 41",
+  "Book Title 42",
+  "Book Title 43",
+  "Book Title 44",
+  "Book Title 45",
+  "Book Title 46",
+  "Book Title 47",
+  "Book Title 48",
+  "Book Title 49",
+  "Book Title 50"
+];
+
+let output = "";
+for (let i = 0; i < 50; i++) {
+  output += `
+  <div class="book-item" data-title="${bookTitles[i]}">
+    <img src="Explore/${i + 1}.jfif" alt="${bookTitles[i]} cover" class="book-cover">
+    <a href="pdfs/${i + 1}.pdf" class="download-btn" download>Download PDF</a>
+  </div>\n`;
+}
+console.log(output);
+
+    const searchInput = document.getElementById('searchInput');
+    const bookList = document.getElementById('bookList');
+    const books = bookList.getElementsByClassName('book-item');
+
+    searchInput.addEventListener('keyup', function() {
+      const filter = searchInput.value.toLowerCase();
+
+      for (let i = 0; i < books.length; i++) {
+        const title = books[i].getElementsByClassName('book-title')[0].textContent.toLowerCase();
+        if (title.includes(filter)) {
+          books[i].style.display = '';
+        } else {
+          books[i].style.display = 'none';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
