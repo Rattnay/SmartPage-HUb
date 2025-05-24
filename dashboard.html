@@ -97,86 +97,32 @@
     &copy; 2025 Your Company Name. All rights reserved.
   </footer>
 
-  <script>
-    const bookTitles = [
-  "Mindset Boost for Mindset and Productivity",
-  "Digital Budget Planner",
-  "Essential Tools for Productivity",
-  "Book Title 4",
-  "Book Title 5",
-  "Book Title 6",
-  "Book Title 7",
-  "Book Title 8",
-  "Book Title 9",
-  "Book Title 10",
-  "Book Title 11",
-  "Book Title 12",
-  "Book Title 13",
-  "Book Title 14",
-  "Book Title 15",
-  "Book Title 16",
-  "Book Title 17",
-  "Book Title 18",
-  "Book Title 19",
-  "Book Title 20",
-  "Book Title 21",
-  "Book Title 22",
-  "Book Title 23",
-  "Book Title 24",
-  "Book Title 25",
-  "Book Title 26",
-  "Book Title 27",
-  "Book Title 28",
-  "Book Title 29",
-  "Book Title 30",
-  "Book Title 31",
-  "Book Title 32",
-  "Book Title 33",
-  "Book Title 34",
-  "Book Title 35",
-  "Book Title 36",
-  "Book Title 37",
-  "Book Title 38",
-  "Book Title 39",
-  "Book Title 40",
-  "Book Title 41",
-  "Book Title 42",
-  "Book Title 43",
-  "Book Title 44",
-  "Book Title 45",
-  "Book Title 46",
-  "Book Title 47",
-  "Book Title 48",
-  "Book Title 49",
-  "Book Title 50"
-];
+ <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxaADM6s4PwbZ-VHWQMECv7zEU_DQHa7sRO-7nW-WVt6FAF_cS8Ik_B2tka1xMjA5Sz/exec';
 
-let output = "";
-for (let i = 0; i < 50; i++) {
-  output += `
-  <div class="book-item" data-title="${bookTitles[i]}">
-    <img src="Explore/${i + 1}.jfif" alt="${bookTitles[i]} cover" class="book-cover">
-    <a href="pdfs/${i + 1}.pdf" class="download-btn" download>Download PDF</a>
-  </div>\n`;
-}
-console.log(output);
+  fetch(scriptURL)
+    .then(response => response.json())
+    .then(books => {
+      const container = document.getElementById('booksContainer');
+      container.innerHTML = '';
 
-    const searchInput = document.getElementById('searchInput');
-    const bookList = document.getElementById('bookList');
-    const books = bookList.getElementsByClassName('book-item');
-
-    searchInput.addEventListener('keyup', function() {
-      const filter = searchInput.value.toLowerCase();
-
-      for (let i = 0; i < books.length; i++) {
-        const title = books[i].getElementsByClassName('book-title')[0].textContent.toLowerCase();
-        if (title.includes(filter)) {
-          books[i].style.display = '';
-        } else {
-          books[i].style.display = 'none';
-        }
-      }
+      books.forEach(book => {
+        const bookElem = document.createElement('div');
+        bookElem.innerHTML = `
+          <h3>${book.title}</h3>
+          <p><strong>Author:</strong> ${book.author}</p>
+          <p>${book.description}</p>
+          <p><strong>Price:</strong> ${book.price}</p>
+          <a href="${book.link}" target="_blank">Download</a>
+          <hr>
+        `;
+        container.appendChild(bookElem);
+      });
+    })
+    .catch(err => {
+      document.getElementById('booksContainer').innerText = 'Failed to load books: ' + err.message;
     });
-  </script>
+</script>
+
 </body>
 </html>
