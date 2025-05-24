@@ -1,105 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Submit Your Book</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      padding: 20px;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      margin: 12px 0 4px;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 8px;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 15px;
-      width: 100%;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #45a049;
-    }
-  </style>
+  <title>Upload Book</title>
 </head>
 <body>
-  <div class="container">
-    <h2>Book Submission Form</h2>
-    <form id="bookForm">
-      <label for="title">Book Title</label>
-      <input type="text" id="title" required />
-
-      <label for="author">Author</label>
-      <input type="text" id="author" required />
-
-      <label for="genre">Genre</label>
-      <input type="text" id="genre" />
-
-      <label for="price">Price (₱)</label>
-      <input type="number" id="price" step="0.01" />
-
-      <label for="description">Description</label>
-      <textarea id="description" rows="5"></textarea>
-
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+  <h1>Upload Book</h1>
+  <form id="uploadForm">
+    <input type="text" id="title" placeholder="Title" required><br>
+    <input type="text" id="author" placeholder="Author" required><br>
+    <input type="url" id="url" placeholder="Book URL" required><br>
+    <button type="submit">Upload</button>
+  </form>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz9amTvUGwXBgGcU3DiGg5ATv9QgXfqYHqOYKrMhtxG9hy7B-bgvXHgDSmg049KOPTYBA/exec'; // Replace this with your web app URL
-
-    document.getElementById('bookForm').addEventListener('submit', e => {
+    const form = document.getElementById('uploadForm');
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
-      const bookData = {
+      const data = {
         title: document.getElementById('title').value,
         author: document.getElementById('author').value,
-        genre: document.getElementById('genre').value,
-        price: document.getElementById('price').value,
-        description: document.getElementById('description').value,
+        url: document.getElementById('url').value
       };
 
-      fetch(scriptURL, {
+      const response = await fetch('http://localhost:5000/upload', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bookData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.result === "success") {
-          alert("Book uploaded successfully!");
-          document.getElementById("bookForm").reset();
-        } else {
-          alert("Error: " + data.message);
-        }
-      })
-      .catch(err => alert("Upload failed: " + err.message));
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+      alert(result.message);
     });
   </script>
 </body>
