@@ -1,128 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Book Downloads</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    h1 {
-      color: #0077cc;
-    }
-    #searchInput {
-      width: 100%;
-      max-width: 600px;
-      padding: 10px 15px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin: 0 auto 20px auto;
-      display: block;
-    }
-    .book-list {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .book-item {
-      background: white;
-      border-radius: 6px;
-      padding: 15px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .book-title {
-      font-weight: bold;
-    }
-    .download-btn {
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      padding: 10px 16px;
-      text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .download-btn:hover {
-      background-color: #005fa3;
-    }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #777;
-    }
-  </style>
+  <title>Book Dashboard</title>
 </head>
 <body>
-  <header>
-    <h1>Welcome to Your Book Download Center</h1>
-    <p>Select a book below to download the PDF</p>
-  </header>
+  <h1>Available Books</h1>
+  <ul id="bookList"></ul>
 
-  <!-- Search input -->
-  <input type="text" id="searchInput" placeholder="Search books..." />
-
-  <section class="book-list" id="bookList">
-    <div class="book-item">
-      <span class="book-title">Mindset Boost for Mindset and Productivity</span>
-      <a href="pdfs/mindset-boost.pdf" class="download-btn" download>Download PDF</a>
-    </div>
-    <div class="book-item">
-      <span class="book-title">Digital Budget Planner</span>
-      <a href="pdfs/digital-budget-planner.pdf" class="download-btn" download>Download PDF</a>
-    </div>
-    <div class="book-item">
-      <span class="book-title">Essential Tools for Productivity</span>
-      <a href="pdfs/essential-tools.pdf" class="download-btn" download>Download PDF</a>
-    </div>
-    <!-- Add more books here -->
-  </section>
-
-  <footer>
-    &copy; 2025 Your Company Name. All rights reserved.
-  </footer>
-
- <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbz9amTvUGwXBgGcU3DiGg5ATv9QgXfqYHqOYKrMhtxG9hy7B-bgvXHgDSmg049KOPTYBA/exec';
-
-  fetch(scriptURL)
-    .then(response => response.json())
-    .then(books => {
-      const container = document.getElementById('booksContainer');
-      container.innerHTML = '';
+  <script>
+    async function loadBooks() {
+      const res = await fetch('http://localhost:5000/books');
+      const books = await res.json();
+      const list = document.getElementById('bookList');
+      list.innerHTML = '';
 
       books.forEach(book => {
-        const bookElem = document.createElement('div');
-        bookElem.innerHTML = `
-          <h3>${book.title}</h3>
-          <p><strong>Author:</strong> ${book.author}</p>
-          <p>${book.description}</p>
-          <p><strong>Price:</strong> ${book.price}</p>
-          <a href="${book.link}" target="_blank">Download</a>
-          <hr>
-        `;
-        container.appendChild(bookElem);
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${book.title}</strong> by ${book.author} - <a href="${book.url}" target="_blank">Download</a>`;
+        list.appendChild(li);
       });
-    })
-    .catch(err => {
-      document.getElementById('booksContainer').innerText = 'Failed to load books: ' + err.message;
-    });
-</script>
+    }
 
+    loadBooks();
+  </script>
 </body>
 </html>
